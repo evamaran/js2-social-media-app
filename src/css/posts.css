@@ -1,0 +1,81 @@
+/* =========================== POSTS STYLES =========================== */
+
+.posts {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* Card */
+.card {
+	background-color: var(--color-white);
+	border-radius: 12px;
+	padding: 16px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.card-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.card-user h4 {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.timestamp {
+	font-size: 14px;
+	color: var(--color-gray);
+}
+
+/* Post image */
+.post-image {
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 12px;
+	object-fit: cover;
+}
+
+/* Text */
+.post-text {
+	font-size: 16px;
+	color: var(--color-text);
+	margin-bottom: 12px;
+	line-height: 1.4;
+}
+
+.hashtags {
+	display: block;
+	color: var(--color-accent);
+	font-weight: 500;
+}
+
+/* Footer */
+.card-footer {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.icon-group {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.icon-group img {
+	width: 20px;
+	height: 20px;
+}

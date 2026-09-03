@@ -1,0 +1,127 @@
+/* =========================== GLOBAL STYLES =========================== */
+
+:root {
+	--color-text: #1A1A1A;
+	/* Primary text color */
+	--color-bg: #F9F5EE;
+	/* Global background color */
+	--color-white: #FFFFFF;
+	/* White for cards and surfaces */
+
+	--color-accent: #3E5932;
+	/* Brand green (primary accent) */
+	--color-accent-light: #A8C97F;
+	/* Light green for default buttons */
+	--color-accent-hover: #8EB56D;
+	/* Slightly darker green for hover */
+
+	--color-gray: #6B6B6B;
+	/* Neutral gray for icons and secondary text */
+	--color-border: #D8CFC7;
+	/* Light beige border for inputs and dividers */
+}
+
+/* Font & base setup */
+html,
+body {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	line-height: 1.5;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	color: var(--color-text);
+	margin: 0;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+/* Links & buttons */
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+button {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--color-white);
+	background-color: var(--color-accent-light);
+	border: none;
+	border-radius: 8px;
+	height: 48px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: var(--color-accent-hover);
+}
+
+/* Inputs */
+input {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	color: var(--color-text);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 12px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Cards & containers */
+.card {
+	background-color: var(--color-white);
+	border-radius: 12px;
+	padding: 16px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	margin-bottom: 16px;
+}
+
+/* Utility classes */
+.text-green {
+	color: var(--color-accent);
+}
+
+.bg-green {
+	background-color: var(--color-accent);
+}
+
+.bg-white {
+	background-color: var(--color-white);
+}
+
+.rounded {
+	border-radius: 8px;
+}
+
+.center {
+	text-align: center;
+}
+
+/* Desktop layout */
+@media (min-width: 600px) {
+	body {
+		padding: 32px;
+		font-size: 18px;
+	}
+}
