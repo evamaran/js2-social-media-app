@@ -1,9 +1,9 @@
 /* Main stylesheet – imports all component styles */
 
-@import url("./styles/global.css");
-@import url("./styles/header.css");
-@import url("./styles/navbar.css");
-@import url("./styles/filter.css");
-@import url("./styles/posts.css");
-@import url("./styles/auth.css");
-@import url("./styles/profile.css");
+@import url("global.css");
+@import url("header.css");
+@import url("navbar.css");
+@import url("filter.css");
+@import url("posts.css");
+@import url("auth.css");
+@import url("profile.css");
