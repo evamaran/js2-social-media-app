@@ -1,18 +1,32 @@
 import { registerUser } from "../api/auth.js";
 
 const form = document.querySelector("#registerForm") as HTMLFormElement;
+const message = document.querySelector(
+  ".auth-message",
+) as HTMLParagraphElement | null;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const name = (event.target as HTMLFormElement).name.value.trim();
-  const email = (event.target as HTMLFormElement).email.value.trim();
-  const password = (event.target as HTMLFormElement).password.value.trim();
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const password = form.password.value.trim();
 
   try {
     await registerUser({ name, email, password });
+
+    // Success message (optional)
+    if (message) {
+      message.textContent = "Registration successful! Redirecting...";
+    }
+
+    // Redirect
     window.location.href = "login.html";
   } catch (error) {
-    alert((error as Error).message);
+    if (message) {
+      message.textContent = (error as Error).message;
+    } else {
+      alert((error as Error).message);
+    }
   }
 });
