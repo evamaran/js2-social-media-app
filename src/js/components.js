@@ -1,16 +1,18 @@
+console.log("🔥 components.js is running");
+
 import { loadHeader } from "./header.js";
 import { initNavbar } from "./navbar.js";
 import { initFilter } from "./filter.js";
-import { initAuth } from "./auth.js";
-import { initPosts } from "./posts.js";
-import { initProfile } from "./profile.js";
-import { initLogin } from "./login.js";
-import { initRegister } from "./register.js";
-import { initFeed } from "./feed.js";
+import { initAuth } from "./auth.ts";
+import { initPosts } from "./posts.ts";
+import { initProfile } from "./profile.ts";
+import { initLogin } from "./login.ts";
+import { initRegister } from "./register.ts";
+import { initFeed } from "./feed.ts";
 
 /**
  * Initialize all shared UI components across the site.
- * Add new imports here as you create more JS files.
+ * Add new imports here as you create more JS/TS files.
  */
 export function initComponents() {
   loadHeader();     // Header first

@@ -1,4 +1,4 @@
-import { registerUser } from "../api/auth.js";
+import { registerUser } from "./api/auth.js";
 
 const form = document.querySelector("#registerForm") as HTMLFormElement;
 const message = document.querySelector(

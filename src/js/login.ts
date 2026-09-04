@@ -1,5 +1,5 @@
-import { loginUser } from "../api/auth.js";
-import { saveUser } from "../utils/storage.js";
+import { loginUser } from "./api/auth.js";
+import { saveUser } from "./utils/storage.js";
 
 const form = document.querySelector("#loginForm") as HTMLFormElement;
 const message = document.querySelector(".auth-message") as HTMLParagraphElement | null;
