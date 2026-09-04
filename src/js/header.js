@@ -3,7 +3,7 @@ export async function loadHeader() {
   if (!headerElement) return;
 
   try {
-    const response = await fetch("header.html");
+    const response = await fetch("/header.html");
     const html = await response.text();
     headerElement.innerHTML = html;
   } catch (error) {
