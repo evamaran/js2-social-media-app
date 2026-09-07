@@ -2,27 +2,46 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>Register | CodeRoom</title>
-	<meta name="description"
-		content="Create your CodeRoom account and start posting, exploring, and connecting with the community.">
-
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" href="css/styles.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Profile | CodeRoom</title>
+	<meta name="description" content="View your CodeRoom profile, posts, and followers." />
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-
 	<!-- Header -->
 	<header class="site-header"></header>
 
-		<!-- Navbar -->
+	<!-- Main -->
+	<main class="main-content profile-page">
+		<section class="profile-header">
+			<img src="assets/profile-placeholder.png" alt="Profile picture" class="profile-avatar" />
+			<h2 class="profile-name"></h2>
+			<p class="profile-email"></p>
+
+			<div class="profile-actions">
+				<button class="btn-edit">Edit profile</button>
+				<button class="btn-logout">Log out</button>
+			</div>
+		</section>
+
+		<section class="profile-tabs">
+			<button class="tab active">My posts</button>
+			<button class="tab">Followers</button>
+			<button class="tab">Following</button>
+		</section>
+
+		<section class="profile-posts">
+			<p class="empty-state">No posts yet — start creating!</p>
+		</section>
+	</main>
+
+	<!-- Navbar -->
 	<nav class="site-nav"></nav>
 
 	<script type="module" src="./src/js/components.js"></script>
-
 </body>
 
 </html>
