@@ -1,3 +1,15 @@
 export default {
-	base: "./",
+  base: "./",
+  build: {
+    outDir: "dist",
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        login: "login.html",
+        register: "register.html",
+        profile: "profile.html",
+        feed: "feed.html",
+      },
+    },
+  },
 };
