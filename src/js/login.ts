@@ -1,3 +1,5 @@
+export function initLogin() {}
+
 import { loginUser } from "./api/auth.js";
 import { saveUser } from "./utils/storage.js";
 

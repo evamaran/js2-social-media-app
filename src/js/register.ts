@@ -1,3 +1,5 @@
+export function initRegister() {}
+
 import { registerUser } from "./api/auth.js";
 
 const form = document.querySelector("#registerForm") as HTMLFormElement;

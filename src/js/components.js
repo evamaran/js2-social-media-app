@@ -12,7 +12,6 @@ import { initFeed } from "./feed.ts";
 
 /**
  * Initialize all shared UI components across the site.
- * Add new imports here as you create more JS/TS files.
  */
 export function initComponents() {
   loadHeader();     // Header first
