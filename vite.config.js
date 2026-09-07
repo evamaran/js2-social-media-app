@@ -8,7 +8,6 @@ export default {
         login: "login.html",
         register: "register.html",
         profile: "profile.html",
-        feed: "feed.html",
       },
     },
   },
