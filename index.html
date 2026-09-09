@@ -34,7 +34,6 @@
 		<!-- Posts -->
 		<section class="posts">
 
-			<!-- Post card template (empty, API will fill it) -->
 			<article class="card">
 				<div class="card-header">
 					<img class="avatar" alt="">
@@ -63,6 +62,22 @@
 		</section>
 
 	</main>
+
+	<!-- Create Post Modal -->
+	<div id="createPostModal" class="modal">
+		<div class="modal-content">
+			<button class="close-modal">&times;</button>
+
+			<h2>Create post</h2>
+
+			<form id="createPostForm">
+				<input type="text" id="postTitle" placeholder="Title" required>
+				<textarea id="postBody" placeholder="Write something..." required></textarea>
+				<input type="text" id="postMedia" placeholder="Image URL (optional)">
+				<button type="submit" class="publish-btn">Publish</button>
+			</form>
+		</div>
+	</div>
 
 	<!-- Navbar -->
 	<nav class="site-nav"></nav>

@@ -4,7 +4,7 @@ export function initRegister() {
   const form = document.querySelector("#registerForm") as HTMLFormElement;
   const message = document.querySelector(".auth-message") as HTMLParagraphElement | null;
 
-  // Kjør kun på register.html
+  // Run only on register.html
   if (!form) return;
 
   form.addEventListener("submit", async (event) => {

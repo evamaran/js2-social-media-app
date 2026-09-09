@@ -8,7 +8,6 @@ import { initPosts } from "./posts.ts";
 import { initProfile } from "./profile.ts";
 import { initLogin } from "./login.ts";
 import { initRegister } from "./register.ts";
-import { initFeed } from "./feed.ts";
 
 /**
  * Initialize all shared UI components across the site.
@@ -22,7 +21,6 @@ export function initComponents() {
   initProfile();    // Profile page logic
   initLogin();      // Login page logic
   initRegister();   // Register page logic
-  initFeed();       // Feed page logic
 }
 
 // Run automatically when the file loads
