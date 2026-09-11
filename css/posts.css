@@ -1,4 +1,4 @@
-/* =========================== POSTS STYLES =========================== */
+/* =========================== POSTS =========================== */
 
 .posts {
 	display: flex;
@@ -14,7 +14,6 @@
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Header */
 .card-header {
 	display: flex;
 	align-items: center;
@@ -40,7 +39,6 @@
 	color: var(--color-gray);
 }
 
-/* Post image */
 .post-image {
 	width: 100%;
 	border-radius: 8px;
@@ -48,7 +46,6 @@
 	object-fit: cover;
 }
 
-/* Text */
 .post-text {
 	font-size: 16px;
 	color: var(--color-text);
@@ -62,7 +59,6 @@
 	font-weight: 500;
 }
 
-/* Footer */
 .card-footer {
 	display: flex;
 	align-items: center;
@@ -78,4 +74,85 @@
 .icon-group img {
 	width: 20px;
 	height: 20px;
+}
+
+/* =========================== CREATE POST MODAL =========================== */
+
+.modal {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 200;
+}
+
+.modal.open {
+	display: flex;
+}
+
+.modal-content {
+	position: relative;
+	background-color: var(--color-white);
+	border-radius: 12px;
+	padding: 24px;
+	width: 90%;
+	max-width: 400px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+	width: 100%;
+	min-height: 120px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 12px 14px;
+	font-family: Inter, system-ui, sans-serif;
+	font-size: 16px;
+	color: var(--color-text);
+	background-color: #fafafa;
+	resize: none;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.close-modal {
+	position: absolute;
+	top: 16px;
+	right: 20px;
+	background: none;
+	border: none;
+	font-size: 24px;
+	color: var(--color-gray);
+	cursor: pointer;
+	margin-bottom: 8px;
+}
+
+.modal-content h2 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 16px;
+	color: var(--color-text);
+}
+
+.publish-btn {
+	background-color: var(--color-accent);
+	color: var(--color-white);
+	border: none;
+	border-radius: 8px;
+	padding: 10px 16px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 12px;
+}
+
+.publish-btn:hover {
+	opacity: 0.9;
+}
+
+/* Hidden state */
+
+.hidden {
+	display: none;
 }

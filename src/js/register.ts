@@ -10,9 +10,14 @@ export function initRegister() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const password = form.password.value.trim();
+  const nameInput = document.getElementById("name") as HTMLInputElement;
+  const emailInput = document.getElementById("email") as HTMLInputElement;
+  const passwordInput = document.getElementById("password") as HTMLInputElement;
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
 
     try {
       await registerUser({ name, email, password });

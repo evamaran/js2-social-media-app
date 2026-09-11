@@ -1,14 +1,15 @@
-import { loginUser } from "./api/auth.js";
-import { saveUser } from "./utils/storage.js";
+import { loginUser } from './api/auth.js';
+import { saveUser } from './utils/storage.js';
 
 export function initLogin() {
-  const form = document.querySelector("#loginForm") as HTMLFormElement;
-  const message = document.querySelector(".auth-message") as HTMLParagraphElement | null;
+  const form = document.querySelector('#loginForm') as HTMLFormElement;
+  const message = document.querySelector(
+    '.auth-message'
+  ) as HTMLParagraphElement | null;
 
-  // Kjør kun på login.html
   if (!form) return;
 
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const email = form.email.value.trim();
@@ -19,7 +20,7 @@ export function initLogin() {
 
       saveUser(user);
 
-      window.location.href = "profile.html";
+      window.location.href = 'index.html';
     } catch (error) {
       if (message) {
         message.textContent = (error as Error).message;

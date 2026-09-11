@@ -13,7 +13,7 @@ export async function getPosts() {
 }
 
 // Create a new post
-export async function createPost(postData) {
+export async function createPost(postData: Record<string, unknown>) {
   const token = localStorage.getItem("token");
 
   const response = await fetch("https://v2.api.noroff.dev/social/posts", {
@@ -36,20 +36,20 @@ export async function loadFeed() {
 }
 
 // Render all posts into the .posts container
-function renderFeed(posts) {
+function renderFeed(posts: any[]) {
   const container = document.querySelector(".posts");
   if (!container) return;
 
   container.innerHTML = "";
 
-  posts.forEach((post) => {
+  posts.forEach((post: any) => {
     const card = createPostCard(post);
     container.appendChild(card);
   });
 }
 
 // Build a single post card element
-function createPostCard(post) {
+function createPostCard(post: { author: { avatar: string; name: string; }; created: string | number | Date; media: { url: string; }; body: string; _count: { reactions: any; comments: any; }; }) {
   const article = document.createElement("article");
   article.classList.add("card");
 
@@ -93,8 +93,14 @@ export function initCreatePostModal() {
   const closeBtn = document.querySelector(".close-modal");
   const createBtn = document.querySelector(".center-btn"); // "+" button in navbar
   const form = document.getElementById("createPostForm");
+  const textarea = document.getElementById("postBody");
 
   if (!modal || !closeBtn || !createBtn || !form) return;
+
+  textarea?.addEventListener("input", () => {
+	textarea.style.height = "auto"; // Reset height
+	textarea.style.height = `${textarea.scrollHeight}px`; // Set to scrollHeight
+  });
 
   createBtn.addEventListener("click", () => {
     modal.classList.add("open");
@@ -105,21 +111,24 @@ export function initCreatePostModal() {
   });
 
   form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const postData = {
-      title: (document.getElementById("postTitle") as HTMLInputElement).value,
-      body: (document.getElementById("postBody") as HTMLTextAreaElement).value,
-      media: {
-        url: (document.getElementById("postMedia") as HTMLInputElement).value,
-      },
-    };
+  const body = (document.getElementById("postBody") as HTMLTextAreaElement).value;
+  const mediaUrl = (document.getElementById("postMedia") as HTMLInputElement).value;
 
-    await createPost(postData);
+  const postData: any = { body };
 
-    modal.classList.remove("open");
-    loadFeed(); // refresh feed after posting
-  });
+  if (mediaUrl.trim() !== "") {
+    postData.media = { url: mediaUrl };
+  }
+
+  const result = await createPost(postData);
+
+  console.log("API response:", result); // Log the API response for debugging
+
+  modal.classList.remove("open");
+  await loadFeed();
+});
 }
 
 // Initialize everything related to posts

@@ -64,14 +64,13 @@
 	</main>
 
 	<!-- Create Post Modal -->
-	<div id="createPostModal" class="modal">
+	<div id="createPostModal" class="modal hidden">
 		<div class="modal-content">
 			<button class="close-modal">&times;</button>
 
 			<h2>Create post</h2>
 
 			<form id="createPostForm">
-				<input type="text" id="postTitle" placeholder="Title" required>
 				<textarea id="postBody" placeholder="Write something..." required></textarea>
 				<input type="text" id="postMedia" placeholder="Image URL (optional)">
 				<button type="submit" class="publish-btn">Publish</button>
@@ -81,23 +80,6 @@
 
 	<!-- Navbar -->
 	<nav class="site-nav"></nav>
-
-	<!-- Login overlay -->
-	<div class="login-overlay hidden">
-		<div class="login-box">
-			<h2>Welcome back</h2>
-			<p>Please log in to continue.</p>
-
-			<input type="email" class="login-input" placeholder="Email">
-			<input type="password" class="login-input" placeholder="Password">
-
-			<button class="login-btn">Log in</button>
-
-			<p class="login-register">
-				Don't have an account? <a href="register.html">Create one</a>
-			</p>
-		</div>
-	</div>
 
 	<script type="module" src="./src/js/components.js"></script>
 
