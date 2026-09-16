@@ -5,46 +5,58 @@ import { initPosts } from "./posts.ts";
 import { initProfile } from "./profile.ts";
 import { initLogin } from "./login.ts";
 import { initRegister } from "./register.ts";
-import { initLogout } from "./auth.ts";
+import { initLogout } from "./logout.ts";
 
-// Get current page filename
+/**
+ * Get the current page filename (e.g. "index.html")
+ */
 function getPage() {
-  return window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
+	return window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
 }
 
-// Block access to protected pages if user is not logged in
+/**
+ * Protect authenticated pages by redirecting users without a token.
+ * Public pages (login/register) are always allowed.
+ */
 function requireAuth() {
-  const page = getPage();
+	const page = getPage();
 
-  // Public pages do not require auth
-  if (page === "login.html" || page === "register.html") return;
+	// Public pages do not require authentication
+	if (page === "login.html" || page === "register.html") return;
 
-  // Redirect if no token found
-  if (!localStorage.getItem("token")) window.location.href = "login.html";
+	// Redirect if no token found
+	if (!localStorage.getItem("token")) {
+		console.warn("No token found — redirecting to login.");
+		window.location.href = "login.html";
+	}
 }
 
-// Run auth check before anything else
-requireAuth();
-
-// Initialize correct components based on current page
+/**
+ * Initialize correct components based on the current page.
+ * Public pages run their own logic first.
+ * Auth-protected pages run requireAuth() before loading UI.
+ */
 export function initComponents() {
-  const page = getPage();
+	const page = getPage();
 
-  // Public pages
-  if (page === "login.html") return initLogin();
-  if (page === "register.html") return initRegister();
+	// PUBLIC PAGES — must run BEFORE requireAuth()
+	if (page === "login.html") return initLogin();
+	if (page === "register.html") return initRegister();
 
-  // Shared UI for authenticated pages
-  loadHeader();
-  initNavbar();
-  initFilter();
+	// AUTH-PROTECTED PAGES
+	requireAuth();
 
-  // Page-specific logic
-  if (page === "index.html") setTimeout(initPosts, 50); // Delay to ensure DOM is ready
-  if (page === "profile.html") initProfile();
+	// Shared UI for authenticated pages
+	loadHeader();
+	initNavbar();
+	initFilter();
 
-  // Logout button always available when logged in
-  initLogout();
+	// Page-specific logic
+	if (page === "index.html") setTimeout(initPosts, 50); // Ensure DOM is ready
+	if (page === "profile.html") initProfile();
+
+	// Logout button always available when logged in
+	initLogout();
 }
 
 // Auto-run on page load

@@ -1,4 +1,4 @@
-const BASE_URL = "https://v2.api.noroff.dev";
+const BASE_URL = 'https://v2.api.noroff.dev';
 
 export async function registerUser(userData: {
   name: string;
@@ -6,18 +6,19 @@ export async function registerUser(userData: {
   password: string;
 }) {
   const response = await fetch(`${BASE_URL}/auth/register`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData),
   });
 
   const data = await response.json();
+  console.log('LOGIN RAW RESPONSE:', data);
 
   if (!response.ok) {
-    throw new Error(data.errors?.[0]?.message || "Registration failed");
+    throw new Error(data.errors?.[0]?.message || 'Registration failed');
   }
 
-  return data;
+  return data.data;
 }
 
 export async function loginUser(credentials: {
@@ -25,15 +26,15 @@ export async function loginUser(credentials: {
   password: string;
 }) {
   const response = await fetch(`${BASE_URL}/auth/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials),
   });
 
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.errors?.[0]?.message || "Login failed");
+    throw new Error(data.errors?.[0]?.message || 'Login failed');
   }
 
   return data;

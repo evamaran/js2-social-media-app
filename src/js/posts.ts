@@ -1,9 +1,11 @@
 // Fetch all posts from the API
 export async function getPosts() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token')?.trim();
 
-  const response = await fetch("https://v2.api.noroff.dev/social/posts", {
+  const response = await fetch('https://v2.api.noroff.dev/social/posts', {
     headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
       Authorization: `Bearer ${token}`,
     },
   });
@@ -14,12 +16,12 @@ export async function getPosts() {
 
 // Create a new post
 export async function createPost(postData: Record<string, unknown>) {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token')?.trim();
 
-  const response = await fetch("https://v2.api.noroff.dev/social/posts", {
-    method: "POST",
+  const response = await fetch('https://v2.api.noroff.dev/social/posts', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(postData),
@@ -37,10 +39,10 @@ export async function loadFeed() {
 
 // Render all posts into the .posts container
 function renderFeed(posts: any[]) {
-  const container = document.querySelector(".posts");
+  const container = document.querySelector('.posts');
   if (!container) return;
 
-  container.innerHTML = "";
+  container.innerHTML = '';
 
   posts.forEach((post: any) => {
     const card = createPostCard(post);
@@ -49,16 +51,23 @@ function renderFeed(posts: any[]) {
 }
 
 // Build a single post card element
-function createPostCard(post: { author: { avatar: string; name: string; }; created: string | number | Date; media: { url: string; }; body: string; _count: { reactions: any; comments: any; }; }) {
-  const article = document.createElement("article");
-  article.classList.add("card");
+function createPostCard(post: {
+  author: { avatar?: string; name?: string };
+  created: string | number | Date;
+  media?: { url?: string };
+  body?: string;
+  _count?: { reactions?: number; comments?: number };
+}) {
+  const article = document.createElement('article');
+  article.classList.add('card');
 
-  const avatar = post.author?.avatar || "https://placehold.co/60x60";
-  const name = post.author?.name || "Unknown user";
+  const avatar = post.author?.avatar || 'https://placehold.co/60x60';
+  const name = post.author?.name || 'Unknown user';
   const date = new Date(post.created).toLocaleDateString();
-  const image = post.media?.url || "";
-  const body = post.body || "";
+  const image = post.media?.url || '';
+  const body = post.body || '';
 
+  // Template literal for post card layout
   article.innerHTML = `
     <div class="card-header">
       <img class="avatar" src="${avatar}" alt="">
@@ -68,7 +77,7 @@ function createPostCard(post: { author: { avatar: string; name: string; }; creat
       </div>
     </div>
 
-    ${image ? `<img class="post-image" src="${image}" alt="">` : ""}
+    ${image ? `<img class="post-image" src="${image}" alt="">` : ''}
 
     <p class="post-text">${body}</p>
 
@@ -89,50 +98,58 @@ function createPostCard(post: { author: { avatar: string; name: string; }; creat
 
 // Setup modal for creating new posts
 export function initCreatePostModal() {
-  const modal = document.getElementById("createPostModal");
-  const closeBtn = document.querySelector(".close-modal");
-  const createBtn = document.querySelector(".center-btn"); // "+" button in navbar
-  const form = document.getElementById("createPostForm");
-  const textarea = document.getElementById("postBody");
+  const modal = document.getElementById('createPostModal');
+  const closeBtn = document.querySelector('.close-modal');
+  const createBtn = document.querySelector('.center-btn');
+  const form = document.getElementById('createPostForm');
+  const textarea = document.getElementById('postBody');
 
   if (!modal || !closeBtn || !createBtn || !form) return;
 
-  textarea?.addEventListener("input", () => {
-	textarea.style.height = "auto"; // Reset height
-	textarea.style.height = `${textarea.scrollHeight}px`; // Set to scrollHeight
+  // Auto-resize textarea based on content
+  textarea?.addEventListener('input', () => {
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
   });
 
-  createBtn.addEventListener("click", () => {
-    modal.classList.add("open");
+  // Open and close modal
+  createBtn.addEventListener('click', () => modal.classList.add('open'));
+  closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+
+  // Handle form submission
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const body = (document.getElementById('postBody') as HTMLTextAreaElement)
+      .value;
+    const mediaUrl = (document.getElementById('postMedia') as HTMLInputElement)
+      .value;
+
+    const postData: Record<string, unknown> = { body };
+
+    if (mediaUrl.trim() !== '') {
+      postData.media = { url: mediaUrl };
+    }
+
+    await createPost(postData);
+
+    modal.classList.remove('open');
+    await loadFeed();
   });
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.remove("open");
-  });
-
-  form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const body = (document.getElementById("postBody") as HTMLTextAreaElement).value;
-  const mediaUrl = (document.getElementById("postMedia") as HTMLInputElement).value;
-
-  const postData: any = { body };
-
-  if (mediaUrl.trim() !== "") {
-    postData.media = { url: mediaUrl };
-  }
-
-  const result = await createPost(postData);
-
-  console.log("API response:", result); // Log the API response for debugging
-
-  modal.classList.remove("open");
-  await loadFeed();
-});
 }
 
 // Initialize everything related to posts
-export function initPosts() {
-  loadFeed();
+export async function initPosts() {
+  const token = localStorage.getItem('token');
+
+  // Redirect if user is not logged in
+  if (!token) {
+    console.warn('No token found — redirecting to login.');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Load posts and enable modal
+  await loadFeed();
   initCreatePostModal();
 }
