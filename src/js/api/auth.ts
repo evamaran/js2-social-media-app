@@ -37,5 +37,5 @@ export async function loginUser(credentials: {
     throw new Error(data.errors?.[0]?.message || 'Login failed');
   }
 
-  return data;
+  return data.data || data; // Return data.data if it exists, otherwise return data
 }

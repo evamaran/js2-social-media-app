@@ -17,9 +17,15 @@
 	<!-- Main -->
 	<main class="main-content profile-page">
 		<section class="profile-header">
-			<img src="assets/profile-placeholder.png" alt="Profile picture" class="profile-avatar" />
+			<div class="profile-avatar-wrapper">
+				<img src="assets/profile-placeholder.png" alt="Profile picture" class="profile-avatar" />
+				<input type="text" id="avatarUrl" placeholder="Paste image URL" />
+				<button class="btn-save-avatar">Save</button>
+			</div>
+
 			<h2 class="profile-name"></h2>
 			<p class="profile-email"></p>
+			<button class="follow-btn hidden" type="button"></button>
 
 			<div class="profile-actions">
 				<button class="btn-edit">Edit profile</button>
@@ -28,9 +34,9 @@
 		</section>
 
 		<section class="profile-tabs">
-			<button class="tab active">My posts</button>
-			<button class="tab">Followers</button>
-			<button class="tab">Following</button>
+			<button class="tab active" data-tab="posts">My posts</button>
+			<button class="tab" data-tab="followers">Followers</button>
+			<button class="tab" data-tab="following">Following</button>
 		</section>
 
 		<section class="profile-posts">
