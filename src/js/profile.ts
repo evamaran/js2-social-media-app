@@ -11,6 +11,7 @@ interface User {
 
 const API_URL = 'https://v2.api.noroff.dev';
 
+// Returns headers for authenticated API requests
 function getHeaders(): HeadersInit {
   return {
     'Content-Type': 'application/json',
@@ -20,6 +21,7 @@ function getHeaders(): HeadersInit {
   };
 }
 
+// Fetches posts for a list of profiles
 async function getPostsForProfiles(
   profiles: ProfileSummary[]
 ): Promise<Post[]> {
@@ -46,6 +48,7 @@ async function getPostsForProfiles(
   );
 }
 
+// Renders posts inside the profile page
 function renderProfilePosts(
   postsContainer: Element,
   posts: Post[],
@@ -78,7 +81,10 @@ function renderProfilePosts(
     .join('');
 }
 
+// Initializes the profile page
 export async function initProfile(): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, 100));
+
   const user = getUser() as User;
   if (!user) return;
 
