@@ -1,4 +1,5 @@
 import { getApiKey, getToken } from './utils/storage.js';
+import type { Author, Comment, Post } from './types/social.js';
 
 const API_URL = 'https://v2.api.noroff.dev';
 
@@ -10,13 +11,13 @@ function getHeaders(): HeadersInit {
   };
 }
 
-function getAvatarUrl(author: any) {
+function getAvatarUrl(author?: Author): string {
   return typeof author?.avatar === 'string'
     ? author.avatar
     : author?.avatar?.url || 'assets/user.svg';
 }
 
-function renderPost(post: any) {
+function renderPost(post: Post): void {
   const container = document.getElementById('singlePost');
   if (!container) return;
 
@@ -41,7 +42,7 @@ function renderPost(post: any) {
           comments.length
             ? comments
                 .map(
-                  (comment: any) => `
+                  (comment: Comment) => `
           <div class="comment">
             <strong>${comment.author?.name || 'Unknown user'}</strong>
             <span>${comment.body || ''}</span>
