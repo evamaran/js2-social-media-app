@@ -14,7 +14,7 @@ function getHeaders(): HeadersInit {
 function getAvatarUrl(author?: Author): string {
   return typeof author?.avatar === 'string'
     ? author.avatar
-    : author?.avatar?.url || 'assets/user.svg';
+    : author?.avatar?.url || '/icons/user.svg';
 }
 
 function renderPost(post: Post): void {

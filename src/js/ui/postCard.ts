@@ -42,8 +42,8 @@ export function createPostCard(post: Post) {
       : currentUser?.avatar?.url;
 
   const avatar = isOwnPost
-    ? storedAvatar || apiAvatar || 'assets/user.svg'
-    : apiAvatar || 'assets/user.svg';
+    ? storedAvatar || apiAvatar || '/icons/user.svg'
+    : apiAvatar || '/icons/user.svg';
 
   article.innerHTML = `
     <div class="card-header">
@@ -90,12 +90,12 @@ export function createPostCard(post: Post) {
 
     <div class="card-footer">
       <div class="icon-group likes">
-        <img src="assets/like.svg" alt="Likes">
+        <img src="/icons/like.svg" alt="Likes">
         <span class="like-count">${post._count?.reactions || 0}</span>
       </div>
 
       <div class="icon-group comments">
-        <img src="assets/comment.svg" alt="Comments">
+        <img src="/icons/comment.svg" alt="Comments">
         <span class="comment-count">${post._count?.comments || 0}</span>
       </div>
 
@@ -116,7 +116,7 @@ export function createPostCard(post: Post) {
   const avatarImage = article.querySelector('.avatar') as HTMLImageElement;
   avatarImage?.addEventListener('error', () => {
     avatarImage.onerror = null;
-    avatarImage.src = 'assets/user.svg';
+    avatarImage.src = '/icons/user.svg';
   });
 
   // Navigate to profile
