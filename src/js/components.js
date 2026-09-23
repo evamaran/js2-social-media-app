@@ -7,6 +7,7 @@ import { initLogin } from "./login.ts";
 import { initRegister } from "./register.ts";
 import { initLogout } from "./logout.ts";
 import { initPost } from "./post.ts";
+import { getToken } from "./utils/storage.ts";
 
 // Determine which page is currently loaded.
 function getPage() {
@@ -25,7 +26,7 @@ function requireAuth() {
 
 	if (page === "login.html" || page === "register.html") return;
 
-	if (!localStorage.getItem("token")) {
+	if (!getToken()) {
 		window.location.href = "login.html";
 	}
 }
