@@ -2,26 +2,16 @@
 
 :root {
 	--color-text: #1A1A1A;
-	/* Primary text color */
 	--color-bg: #F9F5EE;
-	/* Global background color */
 	--color-white: #FFFFFF;
-	/* White for cards and surfaces */
-
 	--color-accent: #3E5932;
-	/* Brand green (primary accent) */
 	--color-accent-light: #A8C97F;
-	/* Light green for default buttons */
 	--color-accent-hover: #8EB56D;
-	/* Slightly darker green for hover */
-
 	--color-gray: #6B6B6B;
-	/* Neutral gray for icons and secondary text */
 	--color-border: #D8CFC7;
-	/* Light beige border for inputs and dividers */
 }
 
-/* Font & base setup */
+/* Base */
 html,
 body {
 	font-family: "Inter", sans-serif;
@@ -29,7 +19,7 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	margin: 0;
-	padding: 0;
+	padding: 24px;
 	box-sizing: border-box;
 	line-height: 1.5;
 }
@@ -54,12 +44,29 @@ h2 {
 	font-size: 28px;
 }
 
-/* Links & buttons */
+h3 {
+	font-size: 22px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h5 {
+	font-size: 16px;
+}
+
+h6 {
+	font-size: 14px;
+}
+
+/* Links */
 a {
 	color: var(--color-accent);
 	text-decoration: none;
 }
 
+/* Buttons */
 button {
 	font-family: "Inter", sans-serif;
 	font-size: 16px;
@@ -88,40 +95,19 @@ input {
 	box-sizing: border-box;
 }
 
-/* Cards & containers */
+/* Cards */
 .card {
 	background-color: var(--color-white);
 	border-radius: 12px;
-	padding: 16px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-	margin-bottom: 16px;
+	padding: 20px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+	margin-bottom: 24px;
 }
 
-/* Utility classes */
-.text-green {
-	color: var(--color-accent);
-}
-
-.bg-green {
-	background-color: var(--color-accent);
-}
-
-.bg-white {
-	background-color: var(--color-white);
-}
-
-.rounded {
-	border-radius: 8px;
-}
-
-.center {
-	text-align: center;
-}
-
-/* Desktop layout */
-@media (min-width: 600px) {
+/* Desktop */
+@media (min-width: 768px) {
 	body {
-		padding: 32px;
+		padding: 48px;
 		font-size: 18px;
 	}
 }

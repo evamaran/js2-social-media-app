@@ -1,4 +1,5 @@
-/* Font & base setup */
+/* =========================== AUTH =========================== */
+
 html,
 body {
 	font-family: "Inter", sans-serif;
@@ -6,7 +7,7 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	margin: 0;
-	padding: 0;
+	padding: 24px;
 	box-sizing: border-box;
 	line-height: 1.5;
 }

@@ -1,6 +1,5 @@
 /* =========================== NAVBAR STYLES =========================== */
 
-/* Navbar */
 .site-nav {
 	position: fixed;
 	bottom: 0;
@@ -15,7 +14,6 @@
 	z-index: 100;
 }
 
-/* Nav items */
 .nav-item {
 	display: flex;
 	align-items: center;
@@ -31,13 +29,11 @@
 	filter: grayscale(100%) brightness(0) invert(0.4);
 }
 
-/* Active state */
 .nav-item.active img {
 	opacity: 1;
 	filter: none;
 }
 
-/* Center button */
 .center-btn {
 	background-color: var(--color-accent);
 	width: 56px;
@@ -53,4 +49,15 @@
 	width: 24px;
 	height: 24px;
 	filter: brightness(0) invert(1);
+}
+
+/* Netlify badge fix */
+a[href*="netlify.com"] {
+	display: none !important;
+}
+
+@media (min-width: 768px) {
+	.site-nav {
+		height: 72px;
+	}
 }

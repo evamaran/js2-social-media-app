@@ -3,17 +3,15 @@
 .posts {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	margin: 0 16px;
+	gap: 24px;
+	margin: 0 24px 88px;
 }
 
-/* Card */
 .card {
 	background-color: var(--color-white);
 	border-radius: 12px;
-	padding: 16px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-	overflow: hidden;
+	padding: 20px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .card-header {
@@ -46,7 +44,6 @@
 	border-radius: 8px;
 	margin-bottom: 12px;
 	object-fit: cover;
-	display: block;
 }
 
 .post-text {
@@ -72,10 +69,6 @@
 	font-weight: 600;
 }
 
-.edit-tags-input {
-	margin-top: 8px;
-}
-
 .card-footer {
 	display: flex;
 	align-items: center;
@@ -93,178 +86,22 @@
 	height: 20px;
 }
 
-.post-comments {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	margin: 12px 0;
-}
-
-.comment {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 6px;
-	padding: 8px 10px;
-	background-color: #f5f5f5;
-	border-radius: 8px;
-	font-size: 14px;
-}
-
-.comment strong {
-	color: var(--color-text);
-}
-
-.comment span {
-	flex: 1 1 100%;
-}
-
-.comment small {
-	color: #777;
-	font-size: 12px;
-}
-
 .no-comments {
 	margin: 0;
 	color: #777;
 	font-size: 14px;
 }
 
-/* =========================== CREATE POST MODAL =========================== */
-
-.create-modal.hidden {
-	display: none;
-}
-
-.create-modal {
-	position: fixed;
-	inset: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.4);
-	z-index: 900;
-}
-
-.create-modal .modal-content {
-	position: relative;
-	background-color: var(--color-white);
-	border-radius: 12px;
-	padding: 24px;
-	width: 90%;
-	max-width: 400px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-textarea {
-	width: 100%;
-	min-height: 120px;
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	padding: 12px 14px;
-	font-family: Inter, system-ui, sans-serif;
-	font-size: 16px;
-	color: var(--color-text);
-	background-color: #fafafa;
-	resize: none;
-	overflow: hidden;
-	box-sizing: border-box;
-}
-
-.close-modal {
-	position: absolute;
-	top: 16px;
-	right: 20px;
-	background: none;
-	border: none;
-	font-size: 24px;
-	color: var(--color-gray);
-	cursor: pointer;
-	margin-bottom: 8px;
-}
-
-.publish-btn {
-	background-color: var(--color-accent);
-	color: var(--color-white);
-	border: none;
-	border-radius: 8px;
-	padding: 10px 16px;
-	font-weight: 600;
-	cursor: pointer;
-	margin-top: 12px;
-}
-
-.publish-btn:hover {
-	opacity: 0.9;
-}
-
-/* =========================== DELETE POST MODAL =========================== */
-
-.delete-modal.hidden {
-	display: none;
-}
-
-.delete-modal {
-	position: fixed;
-	inset: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: rgba(0, 0, 0, 0.6);
-	z-index: 1000;
-}
-
-.delete-modal .modal-content {
-	background: #fff;
-	padding: 2rem;
-	border-radius: 8px;
-	width: 90%;
-	max-width: 400px;
-	text-align: center;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.modal-actions {
-	display: flex;
-	justify-content: center;
-	gap: 1rem;
-	margin-top: 1.5rem;
-}
-
-.btn-secondary {
-	background: #ccc;
-	color: #333;
-	border: none;
-	padding: 0.6rem 1.2rem;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-.btn-danger {
-	background: var(--color-cta);
-	color: var(--color-cta-text);
-	border: none;
-	padding: 0.6rem 1.2rem;
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-/* =========================== MEDIA QUERIES =========================== */
-
 @media (min-width: 768px) {
 	.posts {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
-		gap: 24px;
-		margin: 0 auto;
+		gap: 32px;
+		margin: 0 auto 120px;
 		max-width: 1200px;
 	}
 
 	.card {
 		grid-column: 3 / 10;
-	}
-
-	.post-image {
-		max-width: 100%;
-		border-radius: 10px;
 	}
 }

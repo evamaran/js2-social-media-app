@@ -1,8 +1,10 @@
+/* =========================== SEARCH FORM =========================== */
+
 .search-form {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
-	margin-bottom: 16px;
+	margin-bottom: 24px;
 }
 
 .search-form.hidden {
@@ -16,14 +18,13 @@
 
 .search-form input {
 	width: 100%;
-	box-sizing: border-box;
 	padding: 10px 12px;
-	border: 1px solid var(--color-gray-light);
+	border: 1px solid var(--color-border);
 	border-radius: 8px;
 	font-size: 16px;
 }
 
-/* =========================== FILTER STYLES =========================== */
+/* =========================== FILTER CHIPS =========================== */
 
 .filters {
 	display: flex;
