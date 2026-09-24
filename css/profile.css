@@ -8,15 +8,16 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 12px;
-	margin-bottom: 24px;
+	gap: 16px;
+	margin-bottom: 32px;
 }
 
 .profile-avatar {
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
 	object-fit: cover;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .profile-avatar-wrapper {
@@ -46,20 +47,37 @@
 }
 
 .profile-name {
-	font-size: 20px;
-	font-weight: 600;
+	font-size: 22px;
+	font-weight: 700;
 	color: var(--color-text);
+	margin-top: 4px;
 }
 
 .profile-email {
-	font-size: 14px;
+	font-size: 15px;
 	color: var(--color-gray);
 }
 
+/* Follow button */
+.follow-btn {
+	background-color: var(--color-accent);
+	color: var(--color-white);
+	border: none;
+	border-radius: 8px;
+	padding: 8px 16px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.follow-btn.hidden {
+	display: none;
+}
+
+/* Profile actions */
 .profile-actions {
 	display: flex;
 	gap: 12px;
-	margin-top: 8px;
+	margin-top: 12px;
 }
 
 .profile-actions button {
@@ -67,24 +85,40 @@
 	color: var(--color-white);
 	border: none;
 	border-radius: 8px;
-	padding: 8px 14px;
+	padding: 8px 16px;
 	font-weight: 600;
 	cursor: pointer;
+	transition: background-color 0.2s ease;
 }
 
+.profile-actions button:hover {
+	background-color: var(--color-accent-hover);
+}
+
+/* Tabs */
 .profile-tabs {
 	display: flex;
+	justify-content: center;
 	gap: 12px;
-	margin-bottom: 24px;
+	margin: 24px 0;
 }
 
 .profile-tabs .tab {
+	flex: 1;
+	max-width: 120px;
 	background-color: var(--color-white);
 	border-radius: 8px;
-	padding: 8px 14px;
+	padding: 10px 14px;
 	font-weight: 600;
 	cursor: pointer;
 	border: 1px solid var(--color-border);
+	text-align: center;
+	transition: all 0.2s ease;
+}
+
+.profile-tabs .tab:hover {
+	background-color: var(--color-accent-light);
+	color: var(--color-white);
 }
 
 .profile-tabs .active {
@@ -93,11 +127,18 @@
 	border-color: var(--color-accent);
 }
 
-/* Profile posts */
+/* Posts */
 .profile-posts {
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+	margin-top: 16px;
+}
+
+.empty-state {
+	text-align: center;
+	color: var(--color-gray);
+	font-size: 15px;
 }
 
 .post-card {
@@ -154,5 +195,14 @@
 
 	.post-card {
 		grid-column: 3 / 10;
+	}
+
+	.profile-header {
+		gap: 20px;
+	}
+
+	.profile-tabs {
+		max-width: 400px;
+		margin: 32px auto;
 	}
 }
