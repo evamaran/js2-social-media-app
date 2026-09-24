@@ -28,9 +28,10 @@
 
 .filters {
 	display: flex;
-	gap: 8px;
-	overflow-x: auto;
+	flex-wrap: wrap;
+	gap: 12px;
 	padding: 16px 0;
+	justify-content: center;
 }
 
 .filter-chip {

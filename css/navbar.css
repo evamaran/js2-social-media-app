@@ -62,13 +62,6 @@
 	justify-content: center;
 }
 
-/* Netlify badge removal */
-a[href*="netlify.com"],
-img[alt*="Netlify"],
-div[style*="netlify"] {
-	display: none !important;
-}
-
 @media (min-width: 768px) {
 	.site-nav {
 		height: 72px;
