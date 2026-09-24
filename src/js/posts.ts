@@ -51,22 +51,24 @@ export async function loadFeed() {
 export function initCreatePostModal() {
   const modal = document.getElementById('createPostModal');
   const closeBtn = document.querySelector('.close-modal');
-  const createBtn = document.querySelector('.center-btn');
   const form = document.getElementById(
     'createPostForm'
   ) as HTMLFormElement | null;
   const textarea = document.getElementById('postBody');
 
-  if (!modal || !closeBtn || !createBtn || !form) return;
+  if (!modal || !closeBtn || !form) return;
 
   textarea?.addEventListener('input', () => {
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
   });
 
-  createBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    modal.classList.remove('hidden');
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (target.closest('.center-btn')) {
+      event.preventDefault();
+      modal.classList.remove('hidden');
+    }
   });
 
   closeBtn.addEventListener('click', () => modal.classList.add('hidden'));

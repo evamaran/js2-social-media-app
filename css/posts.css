@@ -92,6 +92,39 @@
 	font-size: 14px;
 }
 
+.edit-input,
+.comment-input {
+	width: 100%;
+	margin-top: 12px;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 12px;
+	box-sizing: border-box;
+}
+
+.edit-input {
+	resize: none;
+	min-height: 80px;
+}
+
+.edit-tags-input {
+	width: 100%;
+	margin-top: 8px;
+}
+
+.edit-save,
+.comment-send {
+	margin-top: 8px;
+	background-color: var(--color-accent);
+}
+
+.edit-save:hover,
+.comment-send:hover {
+	background-color: var(--color-accent-hover);
+}
+
 @media (min-width: 768px) {
 	.posts {
 		display: grid;

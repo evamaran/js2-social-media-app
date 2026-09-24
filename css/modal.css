@@ -1,0 +1,82 @@
+/* =========================== MODAL STYLES =========================== */
+
+.create-modal,
+.delete-modal {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+.create-modal.hidden,
+.delete-modal.hidden {
+	display: none;
+}
+
+.modal-content {
+	background-color: var(--color-white);
+	border-radius: 12px;
+	padding: 24px;
+	max-width: 500px;
+	width: 90%;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.close-modal {
+	background: none;
+	border: none;
+	font-size: 24px;
+	line-height: 1;
+	color: var(--color-text);
+	cursor: pointer;
+	float: right;
+	height: auto;
+	padding: 0;
+}
+
+#createPostForm {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 16px;
+}
+
+#createPostForm textarea {
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 12px;
+	resize: none;
+	min-height: 80px;
+}
+
+.publish-btn {
+	background-color: var(--color-accent);
+}
+
+.publish-btn:hover {
+	background-color: var(--color-accent-hover);
+}
+
+.modal-actions {
+	display: flex;
+	gap: 12px;
+	margin-top: 16px;
+}
+
+.btn-secondary {
+	background-color: var(--color-border);
+	color: var(--color-text);
+}
+
+.btn-danger {
+	background-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+	background-color: var(--color-danger-hover);
+}
