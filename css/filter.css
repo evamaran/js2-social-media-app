@@ -47,3 +47,23 @@
 	background-color: var(--color-accent);
 	color: var(--color-white);
 }
+
+.filter-container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 24px;
+	box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+	.filter-container {
+		max-width: 1200px;
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	.search-form,
+	.filters {
+		grid-column: 4 / 10;
+	}
+}

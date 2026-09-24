@@ -22,19 +22,21 @@
 	<main class="main-content">
 
 		<!-- Filters -->
-		<form class="search-form hidden" id="searchForm">
-			<label for="searchInput">Search posts</label>
-			<input type="search" id="searchInput" placeholder="Search posts...">
-		</form>
+		<div class="filter-container">
+			<form class="search-form hidden" id="searchForm">
+				<label for="searchInput">Search posts</label>
+				<input type="search" id="searchInput" placeholder="Search posts...">
+			</form>
 
-		<section class="filters">
-			<button class="filter-chip active" data-tag="all">All</button>
-			<button class="filter-chip" data-tag="js2">JS2</button>
-			<button class="filter-chip" data-tag="frontend">Frontend</button>
-			<button class="filter-chip" data-tag="debuglife">Debuglife</button>
-			<button class="filter-chip" data-tag="ui">UI</button>
-			<button class="filter-chip" data-tag="stories">Stories</button>
-		</section>
+			<section class="filters">
+				<button class="filter-chip active" data-tag="all">All</button>
+				<button class="filter-chip" data-tag="js2">JS2</button>
+				<button class="filter-chip" data-tag="frontend">Frontend</button>
+				<button class="filter-chip" data-tag="debuglife">Debuglife</button>
+				<button class="filter-chip" data-tag="ui">UI</button>
+				<button class="filter-chip" data-tag="stories">Stories</button>
+			</section>
+		</div>
 
 		<!-- Posts -->
 		<section class="posts">

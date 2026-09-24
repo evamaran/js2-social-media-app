@@ -51,13 +51,28 @@
 	filter: brightness(0) invert(1);
 }
 
-/* Netlify badge fix */
-a[href*="netlify.com"] {
+.search-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Netlify badge removal */
+a[href*="netlify.com"],
+img[alt*="Netlify"],
+div[style*="netlify"] {
 	display: none !important;
 }
 
 @media (min-width: 768px) {
 	.site-nav {
 		height: 72px;
+		justify-content: center;
+		gap: 3rem;
 	}
 }
