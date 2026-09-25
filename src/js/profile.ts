@@ -60,12 +60,17 @@ function renderProfilePosts(
   }
 
   postsContainer.innerHTML = posts
-    .map(
-      (post: Post) => `
+    .map((post: Post) => {
+      const date = post.created
+        ? new Date(post.created).toLocaleDateString()
+        : '';
+      return `
       <article class="post-card">
-        <small class="post-author">${post.profileName || ''}</small>
+        <div class="post-card-header">
+          <span class="post-author">${post.profileName || ''}</span>
+          <span class="post-date">${date}</span>
+        </div>
         ${post.media?.url ? `<img src="${post.media.url}" class="post-image" alt="">` : ''}
-        <h3>${post.title || ''}</h3>
         <p>${post.body || ''}</p>
         <div class="post-tags">
           ${(post.tags || [])
@@ -76,8 +81,8 @@ function renderProfilePosts(
             .join('')}
         </div>
       </article>
-    `
-    )
+    `;
+    })
     .join('');
 }
 
