@@ -111,8 +111,6 @@ export function createPostCard(post: Post) {
       <img src="/icons/comment.svg" alt="Comments">
       <span class="comment-count">${post._count?.comments || 0}</span>
     </div>
-
-    <button class="comment-btn" data-id="${post.id}">Comment</button>
   </div>
 `;
 
@@ -135,7 +133,7 @@ export function createPostCard(post: Post) {
 
     if (
       target.closest(
-        '.comment-btn, .edit-btn, .delete-btn, .likes, .comments, input, textarea, button'
+        '.edit-btn, .delete-btn, .likes, .comments, input, textarea, button'
       )
     ) {
       return;
@@ -156,8 +154,15 @@ export function createPostCard(post: Post) {
   });
 
   // Comment functionality
-  const commentBtn = article.querySelector('.comment-btn');
-  commentBtn?.addEventListener('click', () => {
+  const commentGroup = article.querySelector('.comments');
+  commentGroup?.addEventListener('click', () => {
+    const existingInput = article.querySelector('.comment-input');
+    if (existingInput) {
+      existingInput.remove();
+      article.querySelector('.comment-send')?.remove();
+      return;
+    }
+
     const input = document.createElement('input');
     input.placeholder = 'Write a comment...';
     input.className = 'comment-input';
