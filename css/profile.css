@@ -27,6 +27,37 @@
 	gap: 8px;
 }
 
+.avatar-container {
+	position: relative;
+	width: 100px;
+	height: 100px;
+}
+
+.avatar-edit-btn {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background-color: var(--color-accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: 2px solid var(--color-white);
+}
+
+.avatar-edit-btn:hover {
+	background-color: var(--color-accent-hover);
+}
+
+.avatar-edit-btn img {
+	width: 14px;
+	height: 14px;
+	filter: brightness(0) invert(1);
+}
+
 #avatarUrl {
 	width: 80%;
 	max-width: 300px;
@@ -44,6 +75,14 @@
 	padding: 6px 12px;
 	font-weight: 600;
 	cursor: pointer;
+}
+
+#avatarUrl.hidden {
+	display: none;
+}
+
+.btn-save-avatar.hidden {
+	display: none;
 }
 
 .profile-name {
@@ -99,32 +138,33 @@
 .profile-tabs {
 	display: flex;
 	justify-content: center;
-	gap: 12px;
+	gap: 24px;
 	margin: 24px 0;
+	border-bottom: 1px solid var(--color-border);
 }
 
 .profile-tabs .tab {
-	flex: 1;
-	max-width: 120px;
-	background-color: var(--color-white);
-	border-radius: 8px;
-	padding: 10px 14px;
-	color: var(--color-text);
+	flex: none;
+	max-width: none;
+	background: none;
+	border: none;
+	border-radius: 0;
+	padding: 8px 4px;
 	font-weight: 600;
+	color: var(--color-gray);
 	cursor: pointer;
-	border: 1px solid var(--color-border);
-	text-align: center;
-	transition: all 0.2s ease;
+	border-bottom: 2px solid transparent;
+	transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .profile-tabs .tab:hover {
-	background-color: var(--color-accent-light);
-	color: var(--color-white);
+	background: none;
+	color: var(--color-text);
 }
 
 .profile-tabs .active {
-	background-color: var(--color-accent);
-	color: var(--color-white);
+	background-color: transparent;
+	color: var(--color-accent);
 	border-color: var(--color-accent);
 }
 

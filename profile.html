@@ -18,9 +18,15 @@
 	<main class="main-content profile-page">
 		<section class="profile-header">
 			<div class="profile-avatar-wrapper">
-				<img src="icons/profile-placeholder.png" alt="Profile picture" class="profile-avatar" />
-				<input type="text" id="avatarUrl" placeholder="Paste image URL" />
-				<button class="btn-save-avatar">Save</button>
+				<div class="avatar-container">
+					<img src="icons/profile-placeholder.png" alt="Profile picture" class="profile-avatar" />
+					<button type="button" class="avatar-edit-btn" aria-label="Change profile picture">
+						<img src="icons/edit.svg" alt="" />
+					</button>
+				</div>
+
+				<input type="text" id="avatarUrl" placeholder="Paste image URL" class="hidden" />
+				<button class="btn-save-avatar hidden" type="button">Save</button>
 			</div>
 
 			<h2 class="profile-name"></h2>
