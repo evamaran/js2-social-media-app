@@ -120,6 +120,11 @@ export async function initProfile(): Promise<void> {
   const saveAvatarBtn = document.querySelector(
     '.btn-save-avatar'
   ) as HTMLButtonElement;
+  const avatarEditBtn = document.querySelector('.avatar-edit-btn');
+  avatarEditBtn?.addEventListener('click', () => {
+    avatarInput?.classList.toggle('hidden');
+    saveAvatarBtn?.classList.toggle('hidden');
+  });
   const followBtn = document.querySelector('.follow-btn') as HTMLButtonElement;
   const tabs =
     document.querySelectorAll<HTMLButtonElement>('.profile-tabs .tab');
