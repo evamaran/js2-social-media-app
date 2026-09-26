@@ -1,26 +1,28 @@
 {
-  "name": "js2-social-media-app",
-  "version": "1.0.0",
-  "description": "Repository for js2 assignment, fall 2026.",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/evamaran/js2-social-media-app.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/evamaran/js2-social-media-app/issues"
-  },
-  "homepage": "https://github.com/evamaran/js2-social-media-app#readme",
-  "devDependencies": {
-    "typescript": "^7.0.2",
-    "vite": "^8.2.2"
-  }
+	"name": "js2-social-media-app",
+	"version": "1.0.0",
+	"description": "Repository for js2 assignment, fall 2026.",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"deploy": "npm run build && gh-pages -d dist"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/evamaran/js2-social-media-app.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"bugs": {
+		"url": "https://github.com/evamaran/js2-social-media-app/issues"
+	},
+	"homepage": "https://github.com/evamaran/js2-social-media-app#readme",
+	"devDependencies": {
+		"gh-pages": "^6.3.0",
+		"typescript": "^7.0.2",
+		"vite": "^8.2.2"
+	}
 }

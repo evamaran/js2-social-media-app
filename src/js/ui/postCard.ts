@@ -42,8 +42,8 @@ export function createPostCard(post: Post) {
       : currentUser?.avatar?.url;
 
   const avatar = isOwnPost
-    ? storedAvatar || apiAvatar || '/icons/user.svg'
-    : apiAvatar || '/icons/user.svg';
+    ? storedAvatar || apiAvatar || 'icons/user.svg'
+    : apiAvatar || 'icons/user.svg';
 
   article.innerHTML = `
   <div class="card-header">
@@ -59,10 +59,10 @@ export function createPostCard(post: Post) {
       ? `
   <div class="post-actions">
     <button class="edit-btn" data-id="${post.id}" aria-label="Edit post">
-      <img src="/icons/edit.svg" alt="">
+      <img src="icons/edit.svg" alt="">
     </button>
     <button class="delete-btn" data-id="${post.id}" aria-label="Delete post">
-      <img src="/icons/delete.svg" alt="">
+      <img src="icons/delete.svg" alt="">
     </button>
   </div>
   `
@@ -103,12 +103,12 @@ export function createPostCard(post: Post) {
 
   <div class="card-footer">
     <div class="icon-group likes">
-      <img src="/icons/like.svg" alt="Likes">
+      <img src="icons/like.svg" alt="Likes">
       <span class="like-count">${post._count?.reactions || 0}</span>
     </div>
 
     <div class="icon-group comments">
-      <img src="/icons/comment.svg" alt="Comments">
+      <img src="icons/comment.svg" alt="Comments">
       <span class="comment-count">${post._count?.comments || 0}</span>
     </div>
   </div>
@@ -118,7 +118,7 @@ export function createPostCard(post: Post) {
   const avatarImage = article.querySelector('.avatar') as HTMLImageElement;
   avatarImage?.addEventListener('error', () => {
     avatarImage.onerror = null;
-    avatarImage.src = '/icons/user.svg';
+    avatarImage.src = 'icons/user.svg';
   });
 
   // Navigate to profile
