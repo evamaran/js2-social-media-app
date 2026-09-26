@@ -134,6 +134,10 @@
 	background-color: var(--color-accent-hover);
 }
 
+.profile-actions.hidden {
+	display: none;
+}
+
 /* Tabs */
 .profile-tabs {
 	display: flex;

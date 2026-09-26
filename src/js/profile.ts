@@ -174,6 +174,8 @@ export async function initProfile(): Promise<void> {
         user.avatar = updatedAvatar;
         localStorage.setItem('user', JSON.stringify(user));
         avatarEl.src = updatedAvatar;
+        avatarInput.classList.add('hidden');
+        saveAvatarBtn.classList.add('hidden');
       } catch (error) {
         console.error('Could not save profile picture:', error);
       } finally {
