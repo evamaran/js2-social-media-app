@@ -3,7 +3,7 @@ export async function initNavbar() {
 	if (!nav) return;
 
 	try {
-		const response = await fetch("/navbar.html");
+		const response = await fetch("navbar.html");
 		const html = await response.text();
 		nav.innerHTML = html;
 	} catch (error) {
