@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Profile | CodeRoom</title>
+	<meta name="description" content="View your CodeRoom profile, posts, and followers." />
+	<link rel="icon" type="image/png" href="favicon.png" />
+  <script type="module" crossorigin src="./assets/components-lxRoQ01_.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/components-CYBc70eV.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<header class="site-header"></header>
+
+	<!-- Main -->
+	<main class="main-content profile-page">
+		<section class="profile-header">
+			<div class="profile-avatar-wrapper">
+				<img src="icons/profile-placeholder.png" alt="Profile picture" class="profile-avatar" />
+				<input type="text" id="avatarUrl" placeholder="Paste image URL" />
+				<button class="btn-save-avatar">Save</button>
+			</div>
+
+			<h2 class="profile-name"></h2>
+			<p class="profile-email"></p>
+			<button class="follow-btn hidden" type="button"></button>
+
+			<div class="profile-actions">
+				<button class="btn-edit">Edit profile</button>
+				<button class="btn-logout">Log out</button>
+			</div>
+		</section>
+
+		<section class="profile-tabs">
+			<button class="tab active" data-tab="posts">My posts</button>
+			<button class="tab" data-tab="followers">Followers</button>
+			<button class="tab" data-tab="following">Following</button>
+		</section>
+
+		<section class="profile-posts">
+			<p class="empty-state">No posts yet — start creating!</p>
+		</section>
+	</main>
+
+	<!-- Navbar -->
+	<nav class="site-nav"></nav>
+
+</body>
+
+</html>

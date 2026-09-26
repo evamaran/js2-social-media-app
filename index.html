@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>CodeRoom</title>
+	<meta name="description"
+		content="A platform for exploring posts, creating content, and interacting with the CodeRoom community.">
+
+	<link rel="icon" type="image/png" href="favicon.png">
+  <script type="module" crossorigin src="./assets/components-lxRoQ01_.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/components-CYBc70eV.css">
+</head>
+
+<body>
+
+	<!-- Header -->
+	<header class="site-header"></header>
+
+	<!-- Main -->
+	<main class="main-content">
+
+		<!-- Filters -->
+		<div class="filter-container">
+			<form class="search-form hidden" id="searchForm">
+				<label for="searchInput">Search posts</label>
+				<input type="search" id="searchInput" placeholder="Search posts...">
+			</form>
+
+			<section class="filters">
+				<button class="filter-chip active" data-tag="all">All</button>
+				<button class="filter-chip" data-tag="js2">JS2</button>
+				<button class="filter-chip" data-tag="frontend">Frontend</button>
+				<button class="filter-chip" data-tag="debuglife">Debuglife</button>
+				<button class="filter-chip" data-tag="ui">UI</button>
+				<button class="filter-chip" data-tag="stories">Stories</button>
+			</section>
+		</div>
+
+		<!-- Posts -->
+		<section class="posts">
+
+			<article class="card">
+				<div class="card-header">
+					<img class="avatar" alt="">
+					<div class="card-user">
+						<h4 class="username"></h4>
+						<span class="timestamp"></span>
+					</div>
+				</div>
+
+				<img class="post-image" alt="">
+
+				<p class="post-text"></p>
+
+				<div class="card-footer">
+					<div class="icon-group likes">
+						<img src="icons/like.svg" alt="Likes">
+						<span class="like-count"></span>
+					</div>
+					<div class="icon-group comments">
+						<img src="icons/comment.svg" alt="Comments">
+						<span class="comment-count"></span>
+					</div>
+				</div>
+			</article>
+
+		</section>
+
+	</main>
+
+	<!-- Create Post Modal -->
+	<div id="createPostModal" class="create-modal hidden">
+		<div class="modal-content">
+			<button class="close-modal">&times;</button>
+
+			<h2>Create post</h2>
+
+			<form id="createPostForm">
+				<textarea id="postBody" placeholder="Write something..." required></textarea>
+				<input type="text" id="postMedia" placeholder="Image URL (optional)">
+				<input type="text" id="postTags" placeholder="Hashtags, e.g. JS2, Frontend">
+				<button type="submit" class="publish-btn">Publish</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Navbar -->
+	<nav class="site-nav"></nav>
+
+	<!-- Delete Modal -->
+	<div id="deleteModal" class="delete-modal hidden">
+		<div class="modal-content">
+			<h3>Delete post?</h3>
+			<p>Are you sure you want to delete this post?</p>
+			<div class="modal-actions">
+				<button id="cancelDelete" class="btn-secondary">Cancel</button>
+				<button id="confirmDelete" class="btn-danger">Delete</button>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
