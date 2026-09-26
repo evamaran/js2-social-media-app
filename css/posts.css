@@ -8,6 +8,7 @@
 }
 
 .card {
+	position: relative;
 	background-color: var(--color-white);
 	border-radius: 12px;
 	padding: 20px;
@@ -84,6 +85,34 @@
 .icon-group img {
 	width: 20px;
 	height: 20px;
+}
+
+.post-actions {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	display: flex;
+	gap: 8px;
+}
+
+.post-actions button {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background-color: var(--color-bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+.post-actions button:hover {
+	background-color: var(--color-border);
+}
+
+.post-actions img {
+	width: 16px;
+	height: 16px;
 }
 
 .no-comments {

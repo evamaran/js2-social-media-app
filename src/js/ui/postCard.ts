@@ -46,71 +46,75 @@ export function createPostCard(post: Post) {
     : apiAvatar || '/icons/user.svg';
 
   article.innerHTML = `
-    <div class="card-header">
-      <img class="avatar" src="${avatar}" alt="">
-      <div class="card-user">
-        <h4 class="username" data-profile-name="${name}">${name}</h4>
-        <span class="timestamp">${date}</span>
-      </div>
+  <div class="card-header">
+    <img class="avatar" src="${avatar}" alt="">
+    <div class="card-user">
+      <h4 class="username" data-profile-name="${name}">${name}</h4>
+      <span class="timestamp">${date}</span>
     </div>
+  </div>
 
-    ${image ? `<img class="post-image" src="${image}" alt="">` : ''}
+  ${
+    isOwnPost
+      ? `
+  <div class="post-actions">
+    <button class="edit-btn" data-id="${post.id}" aria-label="Edit post">
+      <img src="/icons/edit.svg" alt="">
+    </button>
+    <button class="delete-btn" data-id="${post.id}" aria-label="Delete post">
+      <img src="/icons/delete.svg" alt="">
+    </button>
+  </div>
+  `
+      : ''
+  }
 
-    <p class="post-text">${body}</p>
+  ${image ? `<img class="post-image" src="${image}" alt="">` : ''}
 
+  <p class="post-text">${body}</p>
+
+  ${
+    postTags.length > 0
+      ? `<div class="post-tags">${postTags
+          .map((tag: string) => `<span class="tag">#${tag}</span>`)
+          .join('')}</div>`
+      : ''
+  }
+
+  <div class="post-comments">
     ${
-      postTags.length > 0
-        ? `<div class="post-tags">${postTags
-            .map((tag: string) => `<span class="tag">#${tag}</span>`)
-            .join('')}</div>`
-        : ''
+      comments.length > 0
+        ? comments
+            .map(
+              (comment: Comment) => `
+      <div class="comment">
+        <strong>${comment.author?.name || 'Unknown user'}</strong>
+        <span>${comment.body || ''}</span>
+        <small>${
+          comment.created ? new Date(comment.created).toLocaleDateString() : ''
+        }</small>
+      </div>
+    `
+            )
+            .join('')
+        : '<p class="no-comments">No comments yet.</p>'
     }
+  </div>
 
-    <div class="post-comments">
-      ${
-        comments.length > 0
-          ? comments
-              .map(
-                (comment: Comment) => `
-        <div class="comment">
-          <strong>${comment.author?.name || 'Unknown user'}</strong>
-          <span>${comment.body || ''}</span>
-          <small>${
-            comment.created
-              ? new Date(comment.created).toLocaleDateString()
-              : ''
-          }</small>
-        </div>
-      `
-              )
-              .join('')
-          : '<p class="no-comments">No comments yet.</p>'
-      }
+  <div class="card-footer">
+    <div class="icon-group likes">
+      <img src="/icons/like.svg" alt="Likes">
+      <span class="like-count">${post._count?.reactions || 0}</span>
     </div>
 
-    <div class="card-footer">
-      <div class="icon-group likes">
-        <img src="/icons/like.svg" alt="Likes">
-        <span class="like-count">${post._count?.reactions || 0}</span>
-      </div>
-
-      <div class="icon-group comments">
-        <img src="/icons/comment.svg" alt="Comments">
-        <span class="comment-count">${post._count?.comments || 0}</span>
-      </div>
-
-      <button class="comment-btn" data-id="${post.id}">Comment</button>
-
-      ${
-        isOwnPost
-          ? `
-      <button class="edit-btn" data-id="${post.id}">Edit</button>
-      <button class="delete-btn" data-id="${post.id}">Delete</button>
-      `
-          : ''
-      }
+    <div class="icon-group comments">
+      <img src="/icons/comment.svg" alt="Comments">
+      <span class="comment-count">${post._count?.comments || 0}</span>
     </div>
-  `;
+
+    <button class="comment-btn" data-id="${post.id}">Comment</button>
+  </div>
+`;
 
   // Avatar fallback
   const avatarImage = article.querySelector('.avatar') as HTMLImageElement;
