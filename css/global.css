@@ -21,7 +21,7 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	margin: 0;
-	padding: 24px;
+	padding: 12px 24px 24px;
 	box-sizing: border-box;
 	line-height: 1.5;
 	overflow-x: hidden;
