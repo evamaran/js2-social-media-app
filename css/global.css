@@ -21,7 +21,7 @@ body {
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	margin: 0;
-	padding: 12px 24px 24px;
+	padding: 4px 12px 24px;
 	box-sizing: border-box;
 	line-height: 1.5;
 	overflow-x: hidden;
@@ -110,7 +110,7 @@ input {
 /* Desktop */
 @media (min-width: 768px) {
 	body {
-		padding: 48px;
+		padding: 24px 48px 24px;
 		font-size: 18px;
 	}
 }
