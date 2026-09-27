@@ -88,7 +88,7 @@ function renderProfilePosts(
 
 // Initializes the profile page
 export async function initProfile(): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, 100));
+  // await new Promise((resolve) => setTimeout(resolve, 100));
 
   const user = getUser() as User;
   if (!user) return;
