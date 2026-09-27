@@ -114,8 +114,6 @@ export function initCreatePostModal() {
 
 // Initializes posts, modal and filters
 export async function initPosts() {
-  // await new Promise((resolve) => setTimeout(resolve, 100));
-
   const token = getToken();
   const apiKey = getApiKey();
 
