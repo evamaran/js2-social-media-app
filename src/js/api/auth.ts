@@ -12,7 +12,6 @@ export async function registerUser(userData: {
   });
 
   const data = await response.json();
-  console.log('LOGIN RAW RESPONSE:', data);
 
   if (!response.ok) {
     throw new Error(data.errors?.[0]?.message || 'Registration failed');

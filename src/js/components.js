@@ -1,6 +1,5 @@
 import { loadHeader } from "./header.js";
 import { initNavbar } from "./navbar.js";
-import { initFilter } from "./filter.js";
 import { initPosts } from "./posts.ts";
 import { initProfile } from "./profile.ts";
 import { initLogin } from "./login.ts";
@@ -45,7 +44,6 @@ export async function initComponents() {
 	// Shared UI
 	loadHeader();
 	await initNavbar();
-	initFilter();
 
 	// Page-specific logic
 	if (page === "index.html") await initPosts();
