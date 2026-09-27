@@ -37,7 +37,7 @@ Along the way, I ran into a few problems and worked through them:
 
 ## Live Demo
 
-https://coderoomjs2.netlify.app/
+https://evamaran.github.io/js2-social-media-app
 
 ## Repository
 
@@ -54,9 +54,10 @@ https://github.com/evamaran/js2-social-media-app
 ## Installation
 
 ```
-npm install
-npm run dev
-npm run build
+npm install       # install dependencies
+npm run dev       # run locally for development
+npm run build     # create a production build
+npm run deploy    # deploy to GitHub Pages
 ```
 
 ## Tech Stack
@@ -65,7 +66,12 @@ npm run build
 - TypeScript (in selected modules)
 - Vite
 - Noroff Social API v2
-- Netlify
+- GitHub Pages (deployment)
+
+## AI Usage
+
+See [AI_LOG.md](./AI_LOG.md) for a full log of AI assistance used during this
+project.
 
 ## Author
 

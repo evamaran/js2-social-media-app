@@ -34,6 +34,9 @@ function requireAuth() {
 export async function initComponents() {
 	const page = getPage();
 
+	// Header shows on every page for branding
+	loadHeader();
+
 	// Public pages
 	if (page === "login.html") return initLogin();
 	if (page === "register.html") return initRegister();
@@ -41,8 +44,7 @@ export async function initComponents() {
 	// Protected pages
 	requireAuth();
 
-	// Shared UI
-	loadHeader();
+	// Navbar only on protected/authenticated pages
 	await initNavbar();
 
 	// Page-specific logic
