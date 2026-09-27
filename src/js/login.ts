@@ -1,4 +1,4 @@
-import { loginUser } from './api/auth.js';
+import { loginUser } from './api/auth.ts';
 import { saveUser } from './utils/storage.js';
 // @ts-ignore
 import { createApiKey } from './api/createApiKey.js';

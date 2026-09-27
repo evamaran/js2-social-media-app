@@ -190,6 +190,13 @@ export function createPostCard(post: Post) {
   // Edit functionality
   const editBtn = article.querySelector('.edit-btn');
   editBtn?.addEventListener('click', () => {
+    const existingInput = article.querySelector('.edit-input');
+    if (existingInput) {
+      existingInput.remove();
+      article.querySelector('.edit-tags-input')?.remove();
+      article.querySelector('.edit-save')?.remove();
+      return;
+    }
     const input = document.createElement('textarea');
     input.className = 'edit-input';
     input.value = body;

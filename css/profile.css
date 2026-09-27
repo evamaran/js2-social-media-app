@@ -81,6 +81,10 @@
 	display: none;
 }
 
+.avatar-edit-btn.hidden {
+	display: none;
+}
+
 .btn-save-avatar.hidden {
 	display: none;
 }

@@ -145,6 +145,7 @@ export async function initProfile(): Promise<void> {
       .querySelector('.profile-avatar-wrapper input')
       ?.classList.add('hidden');
     document.querySelector('.btn-save-avatar')?.classList.add('hidden');
+    document.querySelector('.avatar-edit-btn')?.classList.add('hidden');
   }
 
   if (saveAvatarBtn && avatarInput && avatarEl) {
